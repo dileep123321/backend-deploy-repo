@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: asia-south1-docker.pkg.dev/winged-idiom-477303-t8/backend-repo/backend-app:13
+          image: asia-south1-docker.pkg.dev/winged-idiom-477303-t8/backend-repo/backend-app:14
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
