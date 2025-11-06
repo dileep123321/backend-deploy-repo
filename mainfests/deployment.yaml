@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: backend
-          image: dileep123/backend-app:latest   # <-- from Docker Hub
+          image: asia-south1-docker.pkg.dev/winged-idiom-477303-t8/backend-repo/backend-app:13
           ports:
             - containerPort: 8080
