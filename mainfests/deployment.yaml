@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
+  labels:
+    app: backend
 spec:
   replicas: 2
   selector:
@@ -15,5 +17,28 @@ spec:
       containers:
         - name: backend
           image: asia-south1-docker.pkg.dev/winged-idiom-477303-t8/backend-repo/backend-app:13
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          # ✅ Add health checks (important for ArgoCD "Healthy" status)
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+      # ✅ Workload Identity annotation (optional but recommended)
+      serviceAccountName: default

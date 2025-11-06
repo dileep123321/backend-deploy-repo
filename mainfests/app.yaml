@@ -6,11 +6,11 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'git remote add origin https://github.com/dileep123321/backend-deploy-repo.git'
+    repoURL: https://github.com/dileep123321/backend-deploy-repo.git
     targetRevision: main
-    path: manifests
+    path: mainfests
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: https://kubernetes.default.svc
     namespace: default
   syncPolicy:
     automated:
