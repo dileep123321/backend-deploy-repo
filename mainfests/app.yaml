@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/your-username/backend-deploy-repo.git'
+    repoURL: 'git remote add origin https://github.com/dileep123321/backend-deploy-repo.git'
     targetRevision: main
     path: manifests
   destination:
